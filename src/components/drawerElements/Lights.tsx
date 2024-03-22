@@ -1,5 +1,9 @@
+// @ts-nocheck
+
 import CircularSlider from "@fseehawer/react-circular-slider";
 import { Bar, BarChart, CartesianGrid, Tooltip, XAxis, YAxis } from "recharts";
+import lightLamp from "../../assets/lights/lightLamp.png";
+import { Typography } from "@material-tailwind/react";
 
 const Lights = () => {
   const data = [
@@ -25,33 +29,45 @@ const Lights = () => {
   };
   return (
     <>
-      <CircularSlider
-        label="Light Intensity"
-        // labelBottom="Test %"
-        labelFontSize={"20"}
-        // trackColor=""
-        progressColorFrom="#f44336"
-        progressSize={16}
-        knobColor="#f44336"
-        // progressColorTo="#f44336"
-        initialValue={100}
-        onChange={(value) => {
-          console.log(value);
-        }}
-      />
-      <BarChart width={600} height={300} data={data}>
-        <XAxis dataKey="name" />
-        <YAxis />
-        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-        <Tooltip wrapperStyle={{ width: 100, backgroundColor: "#ccc" }} />
-        <Bar
-          dataKey="uv"
-          barSize={30}
-          fill="#8884d8"
-          // label={renderCustomBarLabel}
-          onMouseEnter={renderCustomBarLabel}
-        />
-      </BarChart>
+      <div className="flex flex-col justify-start gap-16 h-[calc(100vh-2rem)]">
+        <div className="flex justify-between">
+          <div className="">
+            <CircularSlider
+              label="Light Intensity"
+              // labelBottom="Test %"
+              labelFontSize={"20"}
+              // trackColor=""
+              progressColorFrom="#f44336"
+              progressSize={16}
+              knobColor="#f44336"
+              // progressColorTo="#f44336"
+              initialValue={"100"}
+              onChange={(value) => {
+                console.log(value);
+              }}
+            />
+          </div>
+          <img src={lightLamp} className="w-32 h-32" alt="" />
+        </div>
+
+        <Typography variant="h6" color="blue-gray">
+          Recent Power consumption history
+        </Typography>
+
+        <BarChart width={480} height={320} data={data}>
+          <XAxis dataKey="name" />
+          <YAxis />
+          <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+          <Tooltip wrapperStyle={{ width: 100, backgroundColor: "#ccc" }} />
+          <Bar
+            dataKey="uv"
+            barSize={30}
+            fill="#8884d8"
+            // label={renderCustomBarLabel}
+            onMouseEnter={renderCustomBarLabel}
+          />
+        </BarChart>
+      </div>
     </>
   );
 };

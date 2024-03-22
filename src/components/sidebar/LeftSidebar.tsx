@@ -41,7 +41,7 @@ const LeftSidebar = () => {
   };
 
   return (
-    <Card className="h-[calc(100vh-2rem)] w-full max-w-[24rem] p-4 shadow-xl shadow-blue-gray-900/5 ">
+    <Card className="h-[calc(100vh-0rem)] w-full max-w-[24rem] p-4 shadow-xl shadow-blue-gray-900/5 ">
       <div className="mb-2 flex items-center gap-4 p-4">
         {/* <img
           src="https://docs.material-tailwind.com/img/logo-ct-dark.png"
@@ -150,7 +150,7 @@ const LeftSidebar = () => {
           <ListItemPrefix>
             <InboxIcon className="h-5 w-5" />
           </ListItemPrefix>
-          Notification
+          Notifications
           <ListItemSuffix>
             <Chip
               value="14"
