@@ -9,9 +9,17 @@ function App() {
   const pathname = window.location.pathname;
   const navigate = useNavigate();
   useEffect(() => {
-    if(pathname === "/")
-    navigate("/floor/1");
-  }, []); 
+    if (pathname === "/") {
+      localStorage.getItem("auth") === "true"
+        ? navigate("/floor/1")
+        : navigate("/login");
+    }
+    else if(pathname) {
+      localStorage.getItem("auth") === "true"
+        ? navigate(pathname)
+        : navigate("/login");
+    }
+  }, []);
 
   return (
     <>
