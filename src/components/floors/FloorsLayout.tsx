@@ -2,7 +2,7 @@
 import { Button, Drawer, Typography } from "@material-tailwind/react";
 import floor1 from "../../assets/floors/1.jpg";
 import floor2 from "../../assets/floors/2.jpg";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import CircularSlider from "@fseehawer/react-circular-slider";
 import {
@@ -19,6 +19,7 @@ import {
   YAxis,
 } from "recharts";
 import Fans from "../drawerElements/Fans";
+import bulbOffImg from "../../assets/lights/bulb_off.png";
 
 const FloorsLayout = () => {
   // const location = useLocation(); //To get the URL location
@@ -81,11 +82,22 @@ const FloorsLayout = () => {
     );
   };
 
+  function handleClick(e) {
+    // Get the coordinates relative to the image
+    const x = e.nativeEvent.offsetX;
+    const y = e.nativeEvent.offsetY;
+
+    // Do something with the coordinates
+    console.log("Clicked at:", x, y);
+    openDrawerBottom();
+  }
+
   useEffect(() => {
     if (floorNo) {
       setFloorNoSt(floorNo);
     }
   }, [floorNo]);
+
   return (
     <>
       {floorNoSt == "1" && (
@@ -94,7 +106,7 @@ const FloorsLayout = () => {
             src={floor1}
             className="w-full h-[calc(100vh-4rem)] object-cover"
             alt="floor 1"
-            onClick={openDrawerBottom}
+            onClick={handleClick}
           />
         </>
       )}
@@ -104,20 +116,17 @@ const FloorsLayout = () => {
             src={floor2}
             className="w-full h-[calc(100vh-4rem)] object-cover"
             alt="floor 1"
-            onClick={openDrawerBottom}
+            onClick={handleClick}
           />
         </>
       )}
-
       <Drawer
         placement="right"
         size={600}
         open={openBottom}
         onClose={closeDrawerBottom}
         className="p-4"
-      >
-        
-      </Drawer>
+      ></Drawer>
     </>
   );
 };
