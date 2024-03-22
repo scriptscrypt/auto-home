@@ -14,10 +14,10 @@ import { useEffect, useRef, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import Fans from "../drawerElements/Fans";
 import Lights from "../drawerElements/Lights";
-import { LightBulbIcon } from "@heroicons/react/24/solid";
 import BedroomCard from "../drawerElements/Bedroom/BedroomCard";
 import LivingRoomCard from "../drawerElements/Livingroom/LivingRoomCard";
 import MainDoorCard from "../drawerElements/MainDoor/MainDoorCard";
+import BathRoomCard from "../drawerElements/Bathroom/BathRoomCard";
 
 const FloorsLayout = () => {
   // const location = useLocation(); //To get the URL location
@@ -39,6 +39,10 @@ const FloorsLayout = () => {
 
     // Do something with the coordinates
     console.log("Clicked at:", x, y);
+
+    if ((x > 0 && x < 255 )&& (y > 0 && y < 230)) {
+      setStOpenElement("bathroom");
+    }
 
     if (x > 24 && x < 255 && y > 180 && y < 480) {
       setStOpenElement("bedroom");
@@ -98,7 +102,7 @@ const FloorsLayout = () => {
             <>
               <img
                 src={floor1Normal}
-                className="w-full h-[calc(96vh-0rem)] object-contain"
+                className="w-full h-[calc(96vh-0rem)] object-contain rounded-md"
                 alt="floor 1"
                 onClick={handleClick}
               />
@@ -109,7 +113,7 @@ const FloorsLayout = () => {
             <>
               <img
                 src={floor1Dark}
-                className="w-full h-[calc(96vh-0rem)] object-contain"
+                className="w-full h-[calc(96vh-0rem)] object-contain rounded-md"
                 alt="floor 1"
                 onClick={handleClick}
               />
@@ -139,6 +143,7 @@ const FloorsLayout = () => {
             {stOpenElement == "bedroom" && <BedroomCard />}
             {stOpenElement == "livingroom" && <LivingRoomCard />}
             {stOpenElement == "maindoor" && <MainDoorCard />}
+            {stOpenElement == "bathroom" && <BathRoomCard />}
           </Drawer>
         </div>
       </div>

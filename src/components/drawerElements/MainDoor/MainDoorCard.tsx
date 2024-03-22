@@ -20,8 +20,8 @@ const MainDoorCard = () => {
       desc: <DoorLock />,
     },
     {
-      label: "Smoke Detector",
-      value: "Smoke",
+      label: "Fire Detector",
+      value: "Fire",
       desc: <Smoke />,
     },
   ];

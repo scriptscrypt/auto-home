@@ -1,5 +1,6 @@
 // @ts-nocheck
 
+import React from "react";
 import {
   Tab,
   TabPanel,
@@ -8,20 +9,18 @@ import {
   TabsHeader,
   Typography,
 } from "@material-tailwind/react";
-import React from "react";
 import Lights from "../Lights";
 import Fans from "../Fans";
-import { ClipboardDocumentIcon } from "@heroicons/react/24/solid";
-import { ClipboardDocumentCheckIcon } from "@heroicons/react/24/solid";
 import { ClipboardIcon } from "@heroicons/react/24/outline";
 import Smoke from "../Smoke";
+import Geyser from "../Geyser";
 
-const BedroomCard = () => {
+const BathRoomCard = () => {
   const data = [
     {
-      label: "Fans",
-      value: "Fans",
-      desc: <Fans />,
+      label: "Geyser",
+      value: "Geyser",
+      desc: <Geyser />,
     },
     {
       label: "Lights",
@@ -40,18 +39,18 @@ const BedroomCard = () => {
       <div className="flex flex-col gap-8">
         <div className="flex flex-row justify-between items-center">
           <Typography variant="h3" color="blue-gray">
-            Bedroom
+            Bath room 
           </Typography>
 
           <div className="flex items-center gap-2">
             <Typography variant="h6" color="blue-gray">
-              Room Id : 562387
+              Room Id : 2232312
             </Typography>
             <ClipboardIcon className="h-4 w-4" />
           </div>
         </div>
 
-        <Tabs value="Fans">
+        <Tabs value="Geyser">
           <TabsHeader>
             {data.map(({ label, value }) => (
               <Tab key={value} value={value}>
@@ -72,4 +71,4 @@ const BedroomCard = () => {
   );
 };
 
-export default BedroomCard;
+export default BathRoomCard;
