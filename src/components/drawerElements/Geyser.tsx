@@ -17,7 +17,7 @@ import {
 import LimitedKnob from "./Knob";
 import { Switch, Typography } from "@material-tailwind/react";
 import geyserImg from "../../assets/geyser/geyser.png";
-import Timer from "../timer/Timer";
+import Timer from "./timer/Timer";
 
 const data = [
   { name: "Sun", uv: 400, pv: 2400, amt: 2400 },
