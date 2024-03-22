@@ -27,13 +27,17 @@ import {
   ChevronDownIcon,
   CubeTransparentIcon,
 } from "@heroicons/react/24/outline";
+import router from "../../routes";
+import { useNavigate } from "react-router-dom";
 
 const LeftSidebar = () => {
   const [open, setOpen] = React.useState(0);
   const [openAlert, setOpenAlert] = React.useState(true);
+  const navigate = useNavigate();
 
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
+    navigate("/floor/" + value);
   };
 
   return (
@@ -73,7 +77,7 @@ const LeftSidebar = () => {
                 <PresentationChartBarIcon className="h-5 w-5" />
               </ListItemPrefix>
               <Typography color="blue-gray" className="mr-auto font-normal">
-                Dashboard
+                Ground Floor
               </Typography>
             </AccordionHeader>
           </ListItem>
@@ -83,20 +87,20 @@ const LeftSidebar = () => {
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
-                Analytics
+                Devices
               </ListItem>
               <ListItem>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
-                Reporting
+                Floor View
               </ListItem>
-              <ListItem>
+              {/* <ListItem>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
                 Projects
-              </ListItem>
+              </ListItem> */}
             </List>
           </AccordionBody>
         </Accordion>
@@ -120,7 +124,7 @@ const LeftSidebar = () => {
                 <ShoppingBagIcon className="h-5 w-5" />
               </ListItemPrefix>
               <Typography color="blue-gray" className="mr-auto font-normal">
-                E-Commerce
+                First Floor
               </Typography>
             </AccordionHeader>
           </ListItem>
@@ -130,13 +134,13 @@ const LeftSidebar = () => {
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
-                Orders
+                Devices
               </ListItem>
               <ListItem>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
-                Products
+                Floor View
               </ListItem>
             </List>
           </AccordionBody>
@@ -183,13 +187,13 @@ const LeftSidebar = () => {
       >
         <CubeTransparentIcon className="mb-4 h-12 w-12" />
         <Typography variant="h6" className="mb-1">
-          Upgrade to PRO
+          Rain Alert in the Next 12 hours
         </Typography>
-        <Typography variant="small" className="font-normal opacity-80">
+        {/* <Typography variant="small" className="font-normal opacity-80">
           Upgrade to Material Tailwind PRO and get even more components,
           plugins, advanced features and premium.
-        </Typography>
-        <div className="mt-4 flex gap-3">
+        </Typography> */}
+        {/* <div className="mt-4 flex gap-3">
           <Typography
             as="a"
             href="#"
@@ -202,7 +206,7 @@ const LeftSidebar = () => {
           <Typography as="a" href="#" variant="small" className="font-medium">
             Upgrade Now
           </Typography>
-        </div>
+        </div> */}
       </Alert>
     </Card>
   );

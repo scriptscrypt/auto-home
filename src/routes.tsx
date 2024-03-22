@@ -8,15 +8,15 @@ const router = createBrowserRouter([
     element: <App />,
     // errorElement: <ErrorPage />,
     children: [
-      // {
-      //   index: true, // Indicates this is the default child route
-      //   element: <Navigate to="/feed" replace />, // Redirects from `/` to `/feed`
-      // },
       {
         path: "/floor",
         element: <FloorsLayout />,
         // errorElement: <ErrorPage />,
-      }
+      },
+      {
+        path: "/floor/:floorNo",
+        element: <FloorsLayout />,
+      },
     ],
   },
 ]);
