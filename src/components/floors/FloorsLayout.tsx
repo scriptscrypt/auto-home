@@ -23,6 +23,7 @@ const FloorsLayout = () => {
 
   const { floorNo } = useParams();
   const [floorNoSt, setFloorNoSt] = useState(floorNo);
+  const [flooVar, setFlooVar] = useState("normal");
   const [stOpenElement, setStOpenElement] = useState(false);
 
   const [openBottom, setOpenBottom] = useState(false);
@@ -108,13 +109,53 @@ const FloorsLayout = () => {
 
   return (
     <>
-      <div className="flex gap-0">
+      <div className="flex flex-col gap-2">
+        <div className="flex  justify-between mt-2">
+          <Typography variant="h3" color="blue-gray">
+            {" "}
+            Floor {floorNoSt}
+          </Typography>
+
+          <div className="flex gap-2 items-center">
+            <Typography variant="h6" color="blue-gray">
+              Toggle Daylight
+            </Typography>
+
+            <Switch
+              onChange={() => {
+                if (flooVar == "normal") {
+                  setFlooVar("dark");
+                } else setFlooVar("normal");
+              }}
+              id="custom-switch-component"
+              ripple={false}
+              className="h-full w-full checked:bg-[#8884d8]"
+              containerProps={{
+                className: "w-11 h-6",
+              }}
+              circleProps={{
+                className: "before:hidden left-0.5 border-none",
+              }}
+            />
+          </div>
+        </div>
         <div className="">
-          {floorNoSt == "1" && (
+          {floorNoSt == "1" && flooVar == "normal" && (
             <>
               <img
                 src={floor1Normal}
-                className="w-full h-[calc(100vh-0rem)] object-contain"
+                className="w-full h-[calc(96vh-0rem)] object-contain"
+                alt="floor 1"
+                onClick={handleClick}
+              />
+            </>
+          )}
+
+          {floorNoSt == "1" && flooVar == "dark" && (
+            <>
+              <img
+                src={floor1Dark}
+                className="w-full h-[calc(96vh-0rem)] object-contain"
                 alt="floor 1"
                 onClick={handleClick}
               />
