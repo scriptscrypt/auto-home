@@ -16,7 +16,7 @@ import {
 } from "recharts";
 import LimitedKnob from "./Knob";
 import { Typography } from "@material-tailwind/react";
-
+import fanImg from "../../assets/fans/fan.png"
 const data = [
   { name: "Sun", uv: 400, pv: 2400, amt: 2400 },
   { name: "Mon", uv: 300, pv: 1398, amt: 2210 },
@@ -31,7 +31,7 @@ const Fans = () => {
   return (
     <>
       <div className="flex flex-col justify-between gap-16">
-        <div className="">
+        <div className="flex justify-between">
           <LimitedKnob
             min={0}
             max={10}
@@ -40,6 +40,7 @@ const Fans = () => {
             width={1600}
             height={1600}
           />
+          <img src={fanImg} className="w-32 h-32" alt="" />
         </div>
 
         <Typography variant="h6" color="blue-gray">

@@ -1,5 +1,6 @@
 // @ts-nocheck
 
+import React from "react";
 import {
   Tab,
   TabPanel,
@@ -8,15 +9,12 @@ import {
   TabsHeader,
   Typography,
 } from "@material-tailwind/react";
-import React from "react";
 import Lights from "../Lights";
 import Fans from "../Fans";
-import { ClipboardDocumentIcon } from "@heroicons/react/24/solid";
-import { ClipboardDocumentCheckIcon } from "@heroicons/react/24/solid";
 import { ClipboardIcon } from "@heroicons/react/24/outline";
 import Smoke from "../Smoke";
 
-const BedroomCard = () => {
+const LivingRoomCard = () => {
   const data = [
     {
       label: "Fans",
@@ -40,12 +38,12 @@ const BedroomCard = () => {
       <div className="flex flex-col gap-8">
         <div className="flex flex-row justify-between items-center">
           <Typography variant="h3" color="blue-gray">
-            Bedroom
+            Living Room
           </Typography>
 
           <div className="flex items-center gap-2">
             <Typography variant="h6" color="blue-gray">
-              Room Id : 562387
+              Room Id : 2212312
             </Typography>
             <ClipboardIcon className="h-4 w-4" />
           </div>
@@ -72,4 +70,4 @@ const BedroomCard = () => {
   );
 };
 
-export default BedroomCard;
+export default LivingRoomCard;

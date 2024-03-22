@@ -8,24 +8,21 @@ import {
   TabsHeader,
   Typography,
 } from "@material-tailwind/react";
-import React from "react";
-import Lights from "../Lights";
-import Fans from "../Fans";
-import { ClipboardDocumentIcon } from "@heroicons/react/24/solid";
-import { ClipboardDocumentCheckIcon } from "@heroicons/react/24/solid";
 import { ClipboardIcon } from "@heroicons/react/24/outline";
+import DoorLock from "../DoorLock";
+import Smoke from "../Smoke";
 
-const LivingRoomCard = () => {
+const MainDoorCard = () => {
   const data = [
     {
-      label: "Fans",
-      value: "Fans",
-      desc: <Fans />,
+      label: "Door Lock",
+      value: "Door",
+      desc: <DoorLock />,
     },
     {
-      label: "Lights",
-      value: "Lights",
-      desc: <Lights />,
+      label: "Smoke Detector",
+      value: "Smoke",
+      desc: <Smoke />,
     },
   ];
 
@@ -34,18 +31,18 @@ const LivingRoomCard = () => {
       <div className="flex flex-col gap-8">
         <div className="flex flex-row justify-between items-center">
           <Typography variant="h3" color="blue-gray">
-            Bedroom
+            Main Door
           </Typography>
 
           <div className="flex items-center gap-2">
             <Typography variant="h6" color="blue-gray">
-              Room Id : 562387
+              Room Id : 09045
             </Typography>
             <ClipboardIcon className="h-4 w-4" />
           </div>
         </div>
 
-        <Tabs value="Fans">
+        <Tabs value="Door">
           <TabsHeader>
             {data.map(({ label, value }) => (
               <Tab key={value} value={value}>
@@ -66,4 +63,4 @@ const LivingRoomCard = () => {
   );
 };
 
-export default LivingRoomCard;
+export default MainDoorCard;
