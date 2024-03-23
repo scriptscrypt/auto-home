@@ -14,10 +14,17 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
+  const [userName, setUserName] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [invalidCreds, setInvalidCreds] = React.useState(false);
 
   const handleLogin = () => {
-    localStorage.setItem("auth", "true");
-    navigate("/");
+    if (userName === "myhome@proj.com" && password === "teamof3") {
+      localStorage.setItem("auth", "true");
+      navigate("/");
+    } else {
+      setInvalidCreds(true);
+    }
   };
 
   return (
@@ -34,11 +41,28 @@ const Login = () => {
             </Typography>
           </CardHeader>
           <CardBody className="flex flex-col gap-4">
-            <Input label="Email" size="lg" />
-            <Input label="Password" size="lg" />
+            <Input
+              onChange={(e) => setUserName(e.target.value)}
+              label="Email"
+              size="lg"
+            />
+            <Input
+              onChange={(e) => setPassword(e.target.value)}
+              label="Password"
+              size="lg"
+            />
             <div className="-ml-2.5">
               <Checkbox label="Remember Me" />
             </div>
+            {invalidCreds && (
+              <Typography
+                variant="small"
+                color="red"
+                className="flex mt-0 justify-center"
+              >
+                Invalid credentials
+              </Typography>
+            )}
           </CardBody>
           <CardFooter className="pt-0">
             <Button onClick={handleLogin} variant="gradient" fullWidth>
