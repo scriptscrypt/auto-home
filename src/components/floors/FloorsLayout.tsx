@@ -7,8 +7,10 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-import floor1Dark from "../../assets/floors/1_Dark.png";
 import floor1Normal from "../../assets/floors/1_Normal.png";
+import floor1Dark from "../../assets/floors/1_Dark.png";
+import floor2Normal from "../../assets/floors/2_Normal.png";
+import floor2Dark from "../../assets/floors/2_Dark.png";
 
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
@@ -40,7 +42,7 @@ const FloorsLayout = () => {
     // Do something with the coordinates
     console.log("Clicked at:", x, y);
 
-    if ((x > 0 && x < 255 )&& (y > 0 && y < 230)) {
+    if (x > 0 && x < 255 && y > 0 && y < 230) {
       setStOpenElement("bathroom");
     }
 
@@ -120,16 +122,27 @@ const FloorsLayout = () => {
             </>
           )}
 
-          {/* {floorNoSt == "2" && (
-        <>
-          <img
-            src={floor2Normal}
-            className="w-full h-[calc(100vh-4rem)] object-cover"
-            alt="floor 1"
-            onClick={handleClick}
-          />
-        </>
-      )} */}
+          {floorNoSt == "2" && (
+            <>
+              <img
+                src={floor2Normal}
+                className="w-full h-[calc(100vh-4rem)] object-cover"
+                alt="floor 1"
+                onClick={handleClick}
+              />
+            </>
+          )}
+
+          {floorNoSt == "2" && flooVar == "dark" && (
+            <>
+              <img
+                src={floor2Dark}
+                className="w-full h-[calc(96vh-0rem)] object-contain rounded-md"
+                alt="floor 1"
+                onClick={handleClick}
+              />
+            </>
+          )}
           <Drawer
             placement="right"
             size={600}

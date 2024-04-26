@@ -39,7 +39,7 @@ const TABLE_ROWS = [
     img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-3.jpg",
     name: "John Michael",
     email: "john@smarthome-ai.com",
-    job: "Manager",
+    phno: "9632323998",
     org: "Organization",
     online: true,
     date: "23/04/18",
@@ -48,7 +48,7 @@ const TABLE_ROWS = [
     img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-2.jpg",
     name: "Alexa Liras",
     email: "alexa@smarthome-ai.com",
-    job: "Programator",
+    phno: "96323239985",
     org: "Developer",
     online: false,
     date: "23/04/18",
@@ -57,7 +57,7 @@ const TABLE_ROWS = [
     img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-1.jpg",
     name: "Laurent Perrier",
     email: "laurent@smarthome-ai.com",
-    job: "Executive",
+    phno: "9632323992",
     org: "Projects",
     online: false,
     date: "19/09/17",
@@ -66,7 +66,7 @@ const TABLE_ROWS = [
     img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-4.jpg",
     name: "Michael Levi",
     email: "michael@smarthome-ai.com",
-    job: "Programator",
+    phno: "9632323994",
     org: "Developer",
     online: true,
     date: "24/12/08",
@@ -75,7 +75,7 @@ const TABLE_ROWS = [
     img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-5.jpg",
     name: "Richard Gran",
     email: "richard@smarthome-ai.com",
-    job: "Manager",
+    phno: "9632323991",
     org: "Executive",
     online: false,
     date: "04/10/21",
@@ -147,7 +147,7 @@ export function EmerContactTable() {
           </thead>
           <tbody>
             {TABLE_ROWS.map(
-              ({ img, name, email, job, org, online, date }, index) => {
+              ({ img, name, email, phno, online, date }, index) => {
                 const isLast = index === TABLE_ROWS.length - 1;
                 const classes = isLast
                   ? "p-4"
@@ -183,14 +183,14 @@ export function EmerContactTable() {
                           color="blue-gray"
                           className="font-normal"
                         >
-                          {job}
+                          {phno}
                         </Typography>
                         <Typography
                           variant="small"
                           color="blue-gray"
                           className="font-normal opacity-70"
                         >
-                          {org}
+                          {/* {org} */}
                         </Typography>
                       </div>
                     </td>
