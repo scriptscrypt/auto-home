@@ -32,7 +32,7 @@ const TABS = [
   },
 ];
 
-const TABLE_HEAD = ["Contact", "Relationship", "Status", "Last Edited", ""];
+const TABLE_HEAD = ["Contact", "Contact", "Status", "Last Edited", ""];
 
 const TABLE_ROWS = [
   {

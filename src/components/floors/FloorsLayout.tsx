@@ -122,12 +122,12 @@ const FloorsLayout = () => {
             </>
           )}
 
-          {floorNoSt == "2" && (
+          {floorNoSt == "2" && flooVar == "normal" && (
             <>
               <img
                 src={floor2Normal}
                 className="w-full h-[calc(100vh-4rem)] object-cover"
-                alt="floor 1"
+                alt="floor 2"
                 onClick={handleClick}
               />
             </>
@@ -137,8 +137,9 @@ const FloorsLayout = () => {
             <>
               <img
                 src={floor2Dark}
-                className="w-full h-[calc(96vh-0rem)] object-contain rounded-md"
-                alt="floor 1"
+                // className="w-full h-[calc(96vh-0rem)] object-contain rounded-md"
+                className="w-full h-[calc(100vh-4rem)] object-cover rounded-md"
+                alt="floor 2"
                 onClick={handleClick}
               />
             </>
