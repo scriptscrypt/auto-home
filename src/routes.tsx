@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import FloorsLayout from "./components/floors/FloorsLayout";
 import Login from "./components/screens/Auth/Login";
+import ProfileScreen from "./components/screens/profile/ProfileScreen";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "/floor/:floorNo",
         element: <FloorsLayout />,
+      },
+      {
+        path: "/profile",
+        element: <ProfileScreen />,
       },
     ],
   },

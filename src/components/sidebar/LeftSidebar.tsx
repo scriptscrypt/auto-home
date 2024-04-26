@@ -33,7 +33,7 @@ import {
   CubeTransparentIcon,
 } from "@heroicons/react/24/outline";
 import router from "../../routes";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LeftSidebar = () => {
   const [open, setOpen] = React.useState(0);
@@ -177,12 +177,14 @@ const LeftSidebar = () => {
               />
             </ListItemSuffix>
           </ListItem>
-          <ListItem>
-            <ListItemPrefix>
-              <UserCircleIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            Profile
-          </ListItem>
+          <Link to="/profile">
+            <ListItem>
+              <ListItemPrefix>
+                <UserCircleIcon className="h-5 w-5" />
+              </ListItemPrefix>
+              Profile
+            </ListItem>
+          </Link>
           <ListItem>
             <ListItemPrefix>
               <Cog6ToothIcon className="h-5 w-5" />
