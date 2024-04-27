@@ -64,7 +64,7 @@ const FloorsLayout = () => {
       }
     }
     if (floorNo == "2") {
-      if (x > 350 && x < 580 && y > 190 && y < 500) {
+      if (x > 450 && x < 950 && y > 200 && y < 500) {
         setStOpenElement("livingroom");
       }
     }
