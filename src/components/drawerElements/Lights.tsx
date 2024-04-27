@@ -3,9 +3,10 @@
 import CircularSlider from "@fseehawer/react-circular-slider";
 import { Bar, BarChart, CartesianGrid, Tooltip, XAxis, YAxis } from "recharts";
 import lightLamp from "../../assets/lights/lightLamp.png";
+import sprinkler from "../../assets/irrigation/sprinkler.png";
 import { Typography } from "@material-tailwind/react";
 
-const Lights = () => {
+const Lights = ({ isIrrirgation }) => {
   const data = [
     { name: "Sun", uv: 400, pv: 2400, amt: 2400 },
     { name: "Mon", uv: 300, pv: 1398, amt: 2210 },
@@ -33,7 +34,7 @@ const Lights = () => {
         <div className="flex justify-between">
           <div className="">
             <CircularSlider
-              label="Light Intensity"
+              label={(isIrrirgation ? "Irrigation" : "Lights") + " Intensity"}
               // labelBottom="Test %"
               labelFontSize={"20"}
               // trackColor=""
@@ -47,7 +48,12 @@ const Lights = () => {
               }}
             />
           </div>
-          <img src={lightLamp} className="w-32 h-32" alt="" />
+
+          {isIrrirgation ? (
+            <img src={sprinkler} className="w-32 h-32 rounded-full" alt="" />
+          ) : (
+            <img src={lightLamp} className="w-32 h-32" alt="" />
+          )}
         </div>
 
         <Typography variant="h6" color="blue-gray">

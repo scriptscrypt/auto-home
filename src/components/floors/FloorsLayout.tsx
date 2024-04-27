@@ -20,6 +20,7 @@ import BedroomCard from "../drawerElements/Bedroom/BedroomCard";
 import LivingRoomCard from "../drawerElements/Livingroom/LivingRoomCard";
 import MainDoorCard from "../drawerElements/MainDoor/MainDoorCard";
 import BathRoomCard from "../drawerElements/Bathroom/BathRoomCard";
+import IrrigationCard from "../drawerElements/Irrirgation/IrrigationCard";
 
 const FloorsLayout = () => {
   // const location = useLocation(); //To get the URL location
@@ -56,6 +57,16 @@ const FloorsLayout = () => {
 
     if (x > 255 && x < 440 && y > 640 && y < 1000) {
       setStOpenElement("maindoor");
+    }
+    if (floorNo == "2") {
+      if (x > 30 && x < 370 && y > 30 && y < 350) {
+        setStOpenElement("irrigationCard");
+      }
+    }
+    if (floorNo == "2") {
+      if (x > 350 && x < 580 && y > 190 && y < 500) {
+        setStOpenElement("livingroom");
+      }
     }
 
     openDrawerBottom();
@@ -126,7 +137,7 @@ const FloorsLayout = () => {
             <>
               <img
                 src={floor2Normal}
-                className="w-full h-[calc(100vh-4rem)] object-cover"
+                className="w-full h-[calc(100vh-4rem)] object-cover rounded-md"
                 alt="floor 2"
                 onClick={handleClick}
               />
@@ -151,13 +162,22 @@ const FloorsLayout = () => {
             onClose={closeDrawerBottom}
             className="p-4"
           >
-            {stOpenElement == "fan" && <Fans />}
-            {stOpenElement == "light" && <Lights />}
+            {stOpenElement == "fan" && floorNo && <Fans />}
+            {stOpenElement == "light" && floorNo == "1" && <Lights />}
 
-            {stOpenElement == "bedroom" && <BedroomCard />}
-            {stOpenElement == "livingroom" && <LivingRoomCard />}
-            {stOpenElement == "maindoor" && <MainDoorCard />}
-            {stOpenElement == "bathroom" && <BathRoomCard />}
+            {stOpenElement == "bedroom" && floorNo == "1" && <BedroomCard />}
+            {stOpenElement == "livingroom" && floorNo == "1" && (
+              <LivingRoomCard />
+            )}
+            {stOpenElement == "maindoor" && floorNo == "1" && <MainDoorCard />}
+            {stOpenElement == "bathroom" && floorNo == "1" && <BathRoomCard />}
+
+            {stOpenElement == "irrigationCard" && floorNo == "2" && (
+              <IrrigationCard />
+            )}
+            {stOpenElement == "livingroom" && floorNo == "2" && (
+              <LivingRoomCard />
+            )}
           </Drawer>
         </div>
       </div>
